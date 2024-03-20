@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  start:
+    cmds:
+      - uvicorn app.main:app --reload
+
+
+  format:
+    cmds:
+      - pre-commit run --all-files
